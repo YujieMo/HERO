@@ -50,7 +50,7 @@ def get_args(model_name, dataset, custom_key="", yaml_path=None) -> argparse.Nam
 def main():
     process.setup_seed(0)
     args = get_args(
-        model_name="HGNN",
+        model_name="SHGL",
         dataset="photo",  #Heterogeneous graph: ACM, Yelp, DBLP, Aminer || Homogeneous graph: photo, computers, cs, physics
         custom_key="Node",  # Node: node classification
     )
