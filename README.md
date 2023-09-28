@@ -15,7 +15,7 @@ This repository contains the reference code for the manuscript ``Self-supervised
 
 ## Preparation
 Important args:
-* `--use_pretrain` Test checkpoints to reproduce the results
+* `--use_pretrain` Test checkpoints to reproduce the results 
 * `--dataset` Heterogeneous graph: ACM, Yelp, DBLP, Aminer || Homogeneous graph: photo, computers, cs, physics
 * `--custom_key` Node: node classification
 

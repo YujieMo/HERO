@@ -10,12 +10,12 @@ DEFAULT: &DEFAULT
   save_plot: False
   val_interval: 1
 
-HGNN: &HGNN
-  model_name: HGNN
+SHGL: &SHGL
+  model_name: SHGL
   <<: *DEFAULT
 
-HGNN-ACM-Node: &HGNN-ACM-Node
-  <<: *HGNN
+SHGL-ACM-Node: &SHGL-ACM-Node
+  <<: *SHGL
   nb_epochs: 500
   lr: 0.0025
   hid_units: 256
@@ -30,8 +30,8 @@ HGNN-ACM-Node: &HGNN-ACM-Node
   edge_rate: 0.9
 
 
-HGNN-DBLP-Node: &HGNN-DBLP-Node
-  <<: *HGNN
+SHGL-DBLP-Node: &SHGL-DBLP-Node
+  <<: *SHGL
   nb_epochs: 500
   lr: 0.0005
   hid_units: 256
@@ -48,8 +48,8 @@ HGNN-DBLP-Node: &HGNN-DBLP-Node
   edge_rate: 0.5
   patience: 30
 
-HGNN-Yelp-Node: &HGNN-Yelp-Node
-  <<: *HGNN
+SHGL-Yelp-Node: &SHGL-Yelp-Node
+  <<: *SHGL
   nb_epochs: 500
   lr: 0.0005
   hid_units: 128
@@ -63,8 +63,8 @@ HGNN-Yelp-Node: &HGNN-Yelp-Node
   g_dim: 256
   edge_rate: 0.8
 
-HGNN-Aminer-Node: &HGNN-Aminer-Node
-  <<: *HGNN
+SHGL-Aminer-Node: &SHGL-Aminer-Node
+  <<: *SHGL
   nb_epochs: 500
   lr: 0.0005
   hid_units: 256
@@ -80,8 +80,8 @@ HGNN-Aminer-Node: &HGNN-Aminer-Node
   g_equidim: 512
   p_equidim: 256
 
-HGNN-photo-Node: &HGNN-photo-Node
-  <<: *HGNN
+SHGL-photo-Node: &SHGL-photo-Node
+  <<: *SHGL
   nb_epochs: 1000
   lr: 0.0001
   hid_units: 512
@@ -98,8 +98,8 @@ HGNN-photo-Node: &HGNN-photo-Node
   patience: 30
   dfr: 0.05
 
-HGNN-cs-Node: &HGNN-cs-Node
-  <<: *HGNN
+SHGL-cs-Node: &SHGL-cs-Node
+  <<: *SHGL
   nb_epochs: 1000
   lr: 0.0005
   hid_units: 256
@@ -116,8 +116,8 @@ HGNN-cs-Node: &HGNN-cs-Node
   dfr: 0.05
 
 
-HGNN-physics-Node: &HGNN-physics-Node
-  <<: *HGNN
+SHGL-physics-Node: &SHGL-physics-Node
+  <<: *SHGL
   nb_epochs: 1000
   lr: 0.0005
   hid_units: 512
@@ -133,8 +133,8 @@ HGNN-physics-Node: &HGNN-physics-Node
   p_equidim: 256
   dfr: 0.05
 
-HGNN-computers-Node: &HGNN-computers-Node
-  <<: *HGNN
+SHGL-computers-Node: &SHGL-computers-Node
+  <<: *SHGL
   nb_epochs: 1000
   lr: 0.00005
   hid_units: 512
