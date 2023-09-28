@@ -38,12 +38,12 @@ def load_ACM(args):
     node_idx['a'] = torch.LongTensor([i for i in range(3025, 8937)])
     node_idx['s'] = torch.LongTensor([i for i in range(8937, 8994)])
     args.node_num = 3025
-    features = process.preprocess_features(features, norm=True)  # {node_type: [0 || node_features]}
+    features = process.preprocess_features(features, norm=True)
     feature_distance = process.pairwise_distance(features[0:args.node_num])
     feature_distance = F.normalize(feature_distance)
     kthvalue = torch.kthvalue(
         feature_distance.view(feature_distance.shape[0] * feature_distance.shape[1], 1).T,
-        int(feature_distance.shape[0] * feature_distance.shape[1] * args.edge_rate))[0]  # 0.5 for ACM yelp  (1-edge_rate)为剩下的边
+        int(feature_distance.shape[0] * feature_distance.shape[1] * args.edge_rate))[0]
     mask = (feature_distance > kthvalue).detach().float()
     feature_distance = (feature_distance * mask)
 
@@ -70,13 +70,13 @@ def load_Yelp(args):
 
     args.node_num = np.array(labels[0]).shape[0] + np.array(labels[1]).shape[0] + \
                     np.array(labels[2]).shape[0]
-    features = process.preprocess_features(features, norm=True)  # {node_type: [0 || node_features]}
+    features = process.preprocess_features(features, norm=True)
     feature_distance = process.pairwise_distance(features[0:args.node_num])
 
     feature_distance = F.normalize(feature_distance)
     kthvalue = torch.kthvalue(
         feature_distance.view(feature_distance.shape[0] * feature_distance.shape[1], 1).T,
-        int(feature_distance.shape[0] * feature_distance.shape[1] * args.edge_rate))[0]  # 0.5 for ACM yelp  (1-edge_rate)为剩下的边
+        int(feature_distance.shape[0] * feature_distance.shape[1] * args.edge_rate))[0]
     mask = (feature_distance > kthvalue).detach().float()
     feature_distance = (feature_distance * mask)
 
@@ -109,7 +109,7 @@ def load_DBLP(args):
 
     args.node_num = np.array(labels[0]).shape[0] + np.array(labels[1]).shape[0] + \
                     np.array(labels[2]).shape[0]
-    features = process.preprocess_features(features, norm=True)  # {node_type: [0 || node_features]}
+    features = process.preprocess_features(features, norm=True)
     feature_distance = process.pairwise_distance(features[0:args.node_num])
     feature_distance = F.normalize(feature_distance)
 
@@ -119,13 +119,13 @@ def load_Aminer(args):
     edge_dict = defaultdict(list)
     ratio = [20, 40, 60]
     node_types = ['paper', 'author', 'reference']
-    raw_dir = "./dataset/" + "Aminer/raw/"  # /home/myj/Machine-learning-action/multiplex/SR-RSC-main/dataset/aminer/ E:\\Machine-leaning-in-action\\multiplex\\SR-RSC-main\\dataset\\aminer\\raw\\
+    raw_dir = "./dataset/" + "Aminer/raw/"
     features = []
     for i, node_type in enumerate(node_types):
         x = np.load(
-            osp.join(raw_dir, f'features_{i}.npy'))  # movie 3492  actor 33401   director 2502 writer 4459
+            osp.join(raw_dir, f'features_{i}.npy'))
         features.append(torch.from_numpy(x).to(torch.float))
-    features = np.array(torch.cat(features, dim=0))  # torch.cat(features,dim=0)
+    features = np.array(torch.cat(features, dim=0))
     labels = np.load(osp.join(raw_dir, 'labels.npy')).astype('int32')
     labels = torch.from_numpy(labels)
 
@@ -178,7 +178,7 @@ def load_Aminer(args):
     feature_distance = feature_distance
     kthvalue = torch.kthvalue(
         feature_distance.view(feature_distance.shape[0] * feature_distance.shape[1], 1).T,
-        int(feature_distance.shape[0] * feature_distance.shape[1] * args.edge_rate))[0]  # 0.5 for ACM yelp  (1-edge_rate)为剩下的边
+        int(feature_distance.shape[0] * feature_distance.shape[1] * args.edge_rate))[0]
     mask = (feature_distance > kthvalue).detach().float()
     feature_distance = (feature_distance * mask)
     train_idx = train[0]
