@@ -11,7 +11,7 @@ This repository contains the reference code for the manuscript ``Self-supervised
 
 ## Installation
 * pip install -r requirements.txt 
-* Unzip the datasets (the heterogeneous graph datasets can be found in ../dataset/, and the homogeneous graph datasets will be automatically downloaded from the public website)
+* Unzip the datasets (the heterogeneous graph datasets can be found in ./dataset/, and the homogeneous graph datasets will be automatically downloaded from the public website)
 
 ## Preparation
 Important args:

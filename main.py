@@ -51,7 +51,7 @@ def main():
     process.setup_seed(0)
     args = get_args(
         model_name="SHGL",
-        dataset="photo",  #Heterogeneous graph: ACM, Yelp, DBLP, Aminer || Homogeneous graph: photo, computers, cs, physics
+        dataset="ACM",  #Heterogeneous graph: ACM, Yelp, DBLP, Aminer || Homogeneous graph: photo, computers, cs, physics
         custom_key="Node",  # Node: node classification
     )
     if args.dataset in ["ACM", "Yelp", "DBLP", "Aminer"]:
