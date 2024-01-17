@@ -1,6 +1,6 @@
-# Self-supervised Heterogeneous Graph Learning:  a Homogeneity and Heterogeneity Perspective 
+# Self-supervised Heterogeneous Graph Learning:  a Homophily and Heterogeneity Perspective 
 
-This repository contains the reference code for the manuscript ``Self-supervised Heterogeneous Graph Learning:  a Homogeneity and Heterogeneity Perspective" 
+This repository contains the reference code for the manuscript ``Self-supervised Heterogeneous Graph Learning:  a Homophily and Heterogeneity Perspective" 
 
 ## Contents
 
